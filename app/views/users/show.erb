@@ -1,3 +1,7 @@
 <% @teams.each do |team| %>
 <li><%= team.name %> - <%= team.user_id %></li>
 <% end %>
+
+<% @chars.each do |char| %>
+<%= char.name %> - <%= char.role %>
+<% end %>

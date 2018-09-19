@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
   get '/account' do
     redirect_to_login
     @teams = Team.all
+    @chars = Character.all
     erb :'/users/show'
   end
 
@@ -23,6 +24,7 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/:id/edit' do
+    redirect_to_login
     @team = Team.find_by_id(params[:id])
     erb :'/teams/edit'
   end
