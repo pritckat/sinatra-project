@@ -9,7 +9,8 @@ class CharactersController < ApplicationController
     redirect to '/account'
   end
 
-  get '/character/:id' do
-    @char = Characters
+  get '/characters/:id' do
+    @char = Character.find_by_id(params[:id])
+    erb :"/characters/show"
   end
 end
