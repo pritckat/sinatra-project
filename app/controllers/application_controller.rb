@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_to_login
       if !logged_in?
-        redirect "/login"
+        redirect "/login?error=You must be logged in to do that."
       end
     end
   end
