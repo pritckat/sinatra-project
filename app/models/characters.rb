@@ -1,4 +1,4 @@
 class Character < ActiveRecord::Base
-  belongs_to :team
-  belongs_to :user
+  has_many :team_characters
+  has_many :teams, through: :team_characters
 end
