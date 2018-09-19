@@ -1,5 +1,9 @@
 <form method="post" action="/teams/new">
   <input type="text" name="team[name]">
   <input type="textarea" name="team[notes]">
+  <%Character.all.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>">
+  <% end %>
   <input type="submit" value="Create Team">
 </form>

@@ -8,6 +8,9 @@ class TeamsController < ApplicationController
   post '/teams/new' do
     team = Team.new(params[:team])
     team.user = current_user
+    params[:team][:character_ids].each do |char|
+      team.characters << Character.find_by_id(char)
+    end
     team.save
     redirect :"/teams/#{team.id}"
   end
