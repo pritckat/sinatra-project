@@ -1,7 +1,5 @@
 <% @teams.each do |team| %>
-<li><%= team.name %> - <%= team.user_id %></li>
+<% if team.user_id == current_user.id %>
+<li><a href="/teams/<%=team.id%>"><%= team.name %></li>
 <% end %>
-
-<% @chars.each do |char| %>
-<%= char.name %> - <%= char.role %> - <%= char.id %>
 <% end %>
