@@ -8,11 +8,12 @@ class TeamsController < ApplicationController
   post '/teams/new' do
     team = Team.new(params[:team])
     team.user = current_user
-    params[:team][:character_ids].each do |char|
-      team.characters << Character.find_by_id(char)
-    end
     team.save
-    redirect :"/teams/#{team.id}"
+    if six_characters?
+      redirect to "/teams/#{team.id}"
+    else
+      redirect :"/teams/#{team.id}/edit"
+    end
   end
 
   get '/teams/:id' do
@@ -29,10 +30,13 @@ class TeamsController < ApplicationController
   patch '/teams/:id' do
     redirect_to_login
     @team = Team.find_by_id(params[:id])
-    @team.name = params[:team][:name]
-    @team.notes = params[:team][:notes]
+    @team.update(params[:team])
     @team.save
-    redirect to "/teams/#{@team.id}"
+    if six_characters?
+      redirect to "/teams/#{@team.id}"
+    else
+      redirect to "/teams/#{@team.id}/edit"
+    end
   end
 
   get '/teams/:id/delete' do
@@ -45,5 +49,12 @@ class TeamsController < ApplicationController
     @team = Team.find_by_id(params[:id])
     @team.delete
     redirect to "/account"
+  end
+
+  helpers do
+    def six_characters?
+      params[:team][:character_ids].size == 6
+    end
+
   end
 end

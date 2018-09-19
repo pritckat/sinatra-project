@@ -2,5 +2,9 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" name="team[name]" value="<%=@team.name%>">
   <input type="textarea" name="team[notes]" value="<%=@team.notes%>">
+  <%Character.all.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>" <%='checked' if @team.characters.include?(char) %>>
+  <% end %>
   <input type="submit" value="Update Team">
 </form>
