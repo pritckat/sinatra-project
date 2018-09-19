@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  get '/account' do
+    redirect_to_login
+    @user = current_user
+    erb :'/users/show'
+  end
+
   get '/signup' do
     erb :'/users/new'
   end

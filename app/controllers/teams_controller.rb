@@ -1,9 +1,4 @@
 class TeamsController < ApplicationController
-  get '/account' do
-    redirect_to_login
-    @user = current_user
-    erb :'/users/show'
-  end
 
   get '/teams/new' do
     redirect_to_login
