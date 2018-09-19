@@ -23,7 +23,17 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/:id/edit' do
+    @team = Team.find_by_id(params[:id])
+    erb :'/teams/edit'
+  end
 
+  patch '/teams/:id' do
+    redirect_to_login
+    @team = Team.find_by_id(params[:id])
+    @team.name = params[:team][:name]
+    @team.notes = params[:team][:notes]
+    @team.save
+    redirect to "/teams/#{@team.id}"
   end
 
 end

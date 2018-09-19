@@ -1,0 +1,6 @@
+<form method="post" action="/teams/<%= @team.id %>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" name="team[name]" value="<%=@team.name%>">
+  <input type="textarea" name="team[notes]" value="<%=@team.notes%>">
+  <input type="submit" value="Update Team">
+</form>
