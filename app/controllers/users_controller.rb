@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
+    if logged_in?
+      redirect to "/account"
+    end
     @error = params[:error]
     if !session[:user_id]
       erb :'/users/login'
