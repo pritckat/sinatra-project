@@ -2,17 +2,20 @@ class UsersController < ApplicationController
 
   get '/account' do
     redirect_to_login
+    @error = params[:error]
     @user = current_user
     erb :'/users/show'
   end
 
   get '/signup' do
-    erb :'/users/new'
+    if !logged_in?
+      erb :'/users/new'
+    else
+      redirect to "/account?error=you are already logged in as #{current_user.username}"
+    end
   end
 
   post '/signup' do
-    # if params[:user][:username] == "" || params[:user][:password] == ""
-    #   redirect to "/signup"
     if user = User.find_by(username: params[:user][:username])
       redirect to "/signup"
     else
@@ -23,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
+    @error = params[:error]
     if !session[:user_id]
       erb :'/users/login'
     else
@@ -37,7 +41,7 @@ class UsersController < ApplicationController
       @teams = Team.all
       redirect to "/account"
     else
-      redirect to '/login'
+      redirect to '/login?error=invalid login credentials'
     end
   end
 
