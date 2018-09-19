@@ -36,4 +36,15 @@ class TeamsController < ApplicationController
     redirect to "/teams/#{@team.id}"
   end
 
+  get '/teams/:id/delete' do
+    redirect_to_login
+    @team = Team.find_by_id(params[:id])
+    erb :'/teams/delete'
+  end
+
+  delete '/teams/:id/delete' do
+    @team = Team.find_by_id(params[:id])
+    @team.delete
+    redirect to "/account"
+  end
 end
