@@ -1,0 +1,8 @@
+<form method="post" action="/characters/<%= @char.id %>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" name="character[name]" value="<%=@char.name%>">
+  Support:<input type="checkbox" name="character[role]" value="Support">
+  Damage:<input type="checkbox" name="character[role]" value="Damage">
+  Tank:<input type="checkbox" name="character[role]" value="Tank">
+  <input type="submit" value="Update Character">
+</form>

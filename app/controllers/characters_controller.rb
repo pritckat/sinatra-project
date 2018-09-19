@@ -13,4 +13,17 @@ class CharactersController < ApplicationController
     @char = Character.find_by_id(params[:id])
     erb :"/characters/show"
   end
+
+  get '/characters/:id/edit' do
+    @char = Character.find_by_id(params[:id])
+    erb :'/characters/edit'
+  end
+
+  patch '/characters/:id' do
+    @char = Character.find_by_id(params[:id])
+    @char.name = params[:character][:name]
+    @char.role = params[:character][:role]
+    @char.save
+    redirect to "/account"
+  end
 end
