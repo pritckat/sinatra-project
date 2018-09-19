@@ -6,6 +6,7 @@ class CharactersController < ApplicationController
 
   post '/characters/new' do
     @char = Character.create(params[:character])
+    @char.user_id = current_user.id
     redirect to '/account'
   end
 
