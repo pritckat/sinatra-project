@@ -1,8 +1,7 @@
 class TeamsController < ApplicationController
   get '/account' do
     redirect_to_login
-    @teams = Team.all
-    @chars = Character.all
+    @user = current_user
     erb :'/users/show'
   end
 
@@ -13,7 +12,7 @@ class TeamsController < ApplicationController
 
   post '/teams/new' do
     team = Team.new(params[:team])
-    team.user_id = current_user.id
+    team.user = current_user
     team.save
     redirect :"/teams/#{team.id}"
   end
