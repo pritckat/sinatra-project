@@ -1,8 +1,8 @@
+<h1>Welcome to My Project</h2>
+<a href="/teams/new">Create New Team</a>
+
+
+<h2>Your Teams</h2>
 <% @user.teams.each do |team| %>
 <li><a href="/teams/<%=team.id%>"><%= team.name %></a></li>
-<% end %>
-
-<br>Characters</br>
-<% Character.all.each do |char| %>
-<li><%= char.name %></li>
 <% end %>
