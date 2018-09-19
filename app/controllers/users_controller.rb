@@ -11,7 +11,8 @@ class UsersController < ApplicationController
       redirect to "/signup"
     else
       user = User.create(params[:user])
-      redirect to "/"
+      session[:user_id] = user.id
+      redirect to "/account"
     end
   end
 
@@ -27,7 +28,8 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect to "/"
+      @teams = Team.all
+      redirect to "/account"
     else
       redirect to '/login'
     end
