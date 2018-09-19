@@ -1,87 +1,115 @@
 overwatch_characters_list = {
   "Bastion" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Doomfist" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Genji" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Hanzo" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Junkrat" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "McCree" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Mei" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Pharah" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Reaper" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Soldier: 76" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Sombra" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Symmetra" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Torbjörn" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Tracer" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "Widowmaker" => {
-    role: "Damage"
+    role: "Damage",
+    default: true
   },
   "D. Va" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Orisa" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Reinhardt" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Roadhog" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Winston" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Wrecking Ball" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Zarya" => {
-    role: "Tank"
+    role: "Tank",
+    default: true
   },
   "Ana" => {
-    role: "Support"
+    role: "Support",
+    default: true
   },
   "Brigitte" => {
-    role: "Support"
+    role: "Support",
+    default: true
   },
   "Lúcio" => {
-    role: "Support"
+    role: "Support",
+    default: true
   },
   "Mercy" => {
-    role: "Support"
+    role: "Support",
+    default: true
   },
   "Moira" => {
-    role: "Support"
+    role: "Support",
+    default: true
   },
   "Zenyatta" => {
-    role: "Support"
+    role: "Support",
+    default: true
   }
 }
 

@@ -1,3 +1,8 @@
 <% @user.teams.each do |team| %>
 <li><a href="/teams/<%=team.id%>"><%= team.name %></a></li>
 <% end %>
+
+<br>Characters</br>
+<% Character.all.each do |char| %>
+<li><%= char.name %></li>
+<% end %>
