@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  get '/users/new' do
-    "Hello World"
+  get '/signup' do
+    erb :'/users/new'
   end
 end
