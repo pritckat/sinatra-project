@@ -1,12 +1,32 @@
+<% unless @error == nil %>
 <%=@error%>
+<br></br>
+<% end %>
+<h1>Edit <%=@team.name%></h1>
 <br></br>
 <form method="post" action="/teams/<%= @team.id %>">
   <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Team Name:</label>
   <input type="text" name="team[name]" value="<%=@team.name%>">
-  <input type="textarea" name="team[notes]" value="<%=@team.notes%>">
-  <%Character.all.each do |char|%>
+  <br></br>
+  <p>Please select 6 characters for your team.</p>
+  <h3>Support</h3>
+  <%Character.support.each do |char|%>
   <label><%=char.name%></label>
   <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>" <%='checked' if @team.characters.include?(char) %>>
   <% end %>
+  <h3>Tank</h3>
+  <%Character.tank.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>" <%='checked' if @team.characters.include?(char) %>>
+  <% end %>
+  <h3>Damage</h3>
+  <%Character.damage.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>" <%='checked' if @team.characters.include?(char) %>>
+  <% end %>
+  <br></br>
+  <textarea placeholder="<%=@team.notes%>:" rows="4" cols="50" name="team[notes]"></textarea>
+  <br></br>
   <input type="submit" value="Update Team">
 </form>
