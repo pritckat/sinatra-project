@@ -5,7 +5,7 @@
 <% else %>
   <h1><%=@user.username%>'s Overwatch Team Library</h1>
 <% end %>
-
+<p>Name(Support-Tank-Damage)</p>
 <% @user.teams.each do |team| %>
-<li><a href="/teams/<%=team.id%>"><%= team.name %></a></li>
+<li><a href="/teams/<%=team.id%>"><%= team.name %></a><%=team.team_composition%></li>
 <% end %>
