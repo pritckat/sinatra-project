@@ -1,7 +1,3 @@
-<% unless @error == nil %>
-<%=@error%>
-<br></br>
-<% end %>
 <h1>Edit <%=@team.name%></h1>
 <br></br>
 <form method="post" action="/teams/<%= @team.id %>">
@@ -26,7 +22,7 @@
   <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>" <%='checked' if @team.characters.include?(char) %>>
   <% end %>
   <br></br>
-  <textarea placeholder="<%=@team.notes%>:" rows="4" cols="50" name="team[notes]"></textarea>
+  <textarea placeholder="<%=@team.notes%>" rows="4" cols="50" name="team[notes]"></textarea>
   <br></br>
   <input type="submit" value="Update Team">
 </form>

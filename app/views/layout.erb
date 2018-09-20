@@ -4,6 +4,10 @@
     <title>Sinatra Project</title>
   </head>
   <body>
+    <% unless @error == nil %>
+    <%=@error%>
+    <br></br>
+    <% end %>
     <%= yield %>
   </body>
 </html>
