@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
 
+  get '/account/:id' do
+    @user = User.find_by_id(params[:id])
+    erb :'/users/show'
+  end
+
   get '/signup' do
     if !logged_in?
       erb :'/users/new'

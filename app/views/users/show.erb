@@ -1,8 +1,11 @@
-<h1>Your Overwatch Team Library</h2>
-<a href="/teams/new">Create New Team</a>
+<% if @user == current_user %>
+  <h1>Your Overwatch Team Library</h2>
+  <a href="/teams/new">Create New Team</a>
+  <h2>Your Teams</h2>
+<% else %>
+  <h1><%=@user.username%>'s Overwatch Team Library</h1>
+<% end %>
 
-
-<h2>Your Teams</h2>
 <% @user.teams.each do |team| %>
 <li><a href="/teams/<%=team.id%>"><%= team.name %></a></li>
 <% end %>
