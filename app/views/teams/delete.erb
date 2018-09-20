@@ -1,3 +1,4 @@
+<h4>Are you sure you want to delete <%=@team.name%>?</h4>
 <form action="/teams/<%= @team.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">

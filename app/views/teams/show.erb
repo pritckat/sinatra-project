@@ -1,7 +1,7 @@
-<%= @team.name %>
-<%= @team.notes %>
+<h2><%= @team.name %></h2>
+<p><%= @team.notes %></p>
 <% @team.characters.each do |char|%>
-<%= char.name %>
+<li><%= char.name %></li>
 <% end %>
 <a href="/teams/<%= @team.id %>/edit">edit</a>
 <a href="/teams/<%= @team.id %>/delete">delete</a>
