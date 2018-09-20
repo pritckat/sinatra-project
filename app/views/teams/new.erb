@@ -1,9 +1,26 @@
+<h1>Create New Team:</h1>
 <form method="post" action="/teams/new">
+  <label>Team Name:</label>
   <input type="text" name="team[name]">
-  <input type="textarea" name="team[notes]">
-  <%Character.all.each do |char|%>
+  <br></br>
+  <p>Please select 6 characters for your team.</p>
+  <h3>Support</h3>
+  <%Character.support.each do |char|%>
   <label><%=char.name%></label>
   <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>">
   <% end %>
+  <h3>Tank</h3>
+  <%Character.tank.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>">
+  <% end %>
+  <h3>Damage</h3>
+  <%Character.damage.each do |char|%>
+  <label><%=char.name%></label>
+  <input type="checkbox" name="team[character_ids][]" value="<%=char.id%>">
+  <% end %>
+  <br></br>
+  <textarea placeholder="Notes:" rows="4" cols="50" name="team[notes]"></textarea>
+  <br></br>
   <input type="submit" value="Create Team">
 </form>
