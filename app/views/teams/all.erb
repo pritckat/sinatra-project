@@ -1,5 +1,5 @@
 <h1>All Created Teams</h1>
+<p>Team Name (Support-Tank-Damage) -- Creator</p>
 <% @teams.each do |team| %>
-<p> <a href='/teams/<%=team.id%>'><%=team.name%></a><%=team.team_composition%> -- <a href='/account/<%=team.user_id%>'><%=team.user.username%></p>
-<% binding.pry %>
+<p> <a href='/teams/<%=team.id%>'><%=team.name%></a> <%=team.team_composition%> -- <a href='/account/<%=team.user_id%>'><%=team.user.username%></p>
 <%end%>
