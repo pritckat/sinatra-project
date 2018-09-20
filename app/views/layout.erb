@@ -4,6 +4,12 @@
     <title>Overwatch Team Library</title>
   </head>
   <body>
+    <header>
+      <% if logged_in? %>
+        <a href='/account'>Your Teams</a>
+        <a href='/logout'>Logout</a>
+      <% end %>
+    </header>
     <% unless @error == nil %>
     <%=@error%>
     <br></br>

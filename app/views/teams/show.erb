@@ -3,5 +3,7 @@
 <% @team.characters.each do |char|%>
 <li><%= char.name %></li>
 <% end %>
+<% if @team.user == current_user %>
 <a href="/teams/<%= @team.id %>/edit">edit</a>
 <a href="/teams/<%= @team.id %>/delete">delete</a>
+<% end %>
