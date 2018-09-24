@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
+    @error = params[:error]
     if !logged_in?
       erb :'/users/new'
     else
