@@ -38,6 +38,7 @@ class TeamsController < ApplicationController
   patch '/teams/:id' do
     redirect_to_login
     @team = Team.find_by_id(params[:id])
+    team_owner?
     @team.update(params[:team])
     @team.save
     if six_characters?
