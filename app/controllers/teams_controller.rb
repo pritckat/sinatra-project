@@ -31,14 +31,14 @@ class TeamsController < ApplicationController
   get '/teams/:id/edit' do
     redirect_to_login
     @team = Team.find_by_id(params[:id])
-    team_owner?
+    redirect_if_not_team_owner
     erb :'/teams/edit'
   end
 
   patch '/teams/:id' do
     redirect_to_login
     @team = Team.find_by_id(params[:id])
-    team_owner?
+    redirect_if_not_team_owner
     @team.update(params[:team])
     @team.save
     if six_characters?
@@ -51,7 +51,7 @@ class TeamsController < ApplicationController
   get '/teams/:id/delete' do
     redirect_to_login
     @team = Team.find_by_id(params[:id])
-    team_owner?
+    redirect_if_not_team_owner
     erb :'/teams/delete'
   end
 
@@ -66,7 +66,7 @@ class TeamsController < ApplicationController
       params[:team][:character_ids].size == 6
     end
 
-    def team_owner?
+    def redirect_if_not_team_owner
       @team = Team.find_by_id(params[:id])
       if @team.user != current_user
         redirect to "/teams/#{@team.id}?error=You are not the owner of this team."
